@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import com.mixlr.panos.navdemo.databinding.FragmentHomeBinding
 
@@ -21,7 +22,9 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.btnSubmit.setOnClickListener {
-            it.findNavController().navigate(R.id.action_homeFragment_to_secondFragment)
+            val bundle = bundleOf("user_input" to binding.etName.text.toString())
+
+            it.findNavController().navigate(R.id.action_homeFragment_to_secondFragment, bundle)
         }
         return binding.root
     }

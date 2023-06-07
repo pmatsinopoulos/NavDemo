@@ -19,6 +19,9 @@ class SecondFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSecondBinding.inflate(inflater, container, false)
+        val input = requireArguments().getString("user_input")
+        binding.tvName.text = input
+
         return binding.root
     }
 }
